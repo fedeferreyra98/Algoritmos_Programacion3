@@ -1,5 +1,5 @@
 import numpy as np
-from ejercicio_8 import fixture
+from ejercicio_8 import fixture, esPotencia2
 def imprimirFixture(matriz):
     for i in range(1, len(matriz[0]),1):
         jornada=matriz[:, i]
@@ -30,13 +30,14 @@ if __name__ == '__main__':
         entrada=input(f"Equipo número {numero}: ")
         
 
-    
+    print(f"La lista de equipos es: {equipos}")
     if len(equipos)%2 != 0:
         #Al ser impar, se necesita partidos de descanso (por eso se agrega 0)
         equipos.insert(0, "0")
-    print(f"La lista de equipos es: {equipos}")
 
-
+    if not esPotencia2(len(equipos)):
+        print("No es potencia de 2.")
+        exit()
     matriz = np.zeros([len(equipos), len(equipos)], dtype='U100')
 
     for k,i in enumerate(equipos):

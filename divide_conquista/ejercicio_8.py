@@ -1,5 +1,8 @@
 import numpy as np
-
+def esPotencia2(x):
+    while x>1:
+        x=x/2
+    return x==1
 def fixture(matrix):
     print(matrix)
     print()
@@ -29,7 +32,9 @@ if __name__ == '__main__':
         equipos.insert(0, 0)
 
     print(f"La lista de equipos es: {equipos}")
-
+    if not esPotencia2(len(equipos)):
+            print("No es potencia de 2.")
+            exit()
     matriz = np.zeros([len(equipos), len(equipos)])
     for k,i in enumerate(equipos):
         matriz[k][0]=i
